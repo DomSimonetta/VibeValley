@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS vibin_db;
+CREATE DATABASE vibin_db;
