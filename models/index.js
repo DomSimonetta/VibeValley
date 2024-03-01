@@ -30,3 +30,12 @@ Song.hasMany(Like, {
     foreignKey: 'songId',
     as: 'likes'
 });
+
+Comment.belongsTo(User, {
+    foreignKey: 'userId',
+    as: 'user'
+});
+Comment.belongsTo(Song, {
+    foreignKey: 'songId',
+    as: 'song'
+});
