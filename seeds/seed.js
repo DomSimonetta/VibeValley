@@ -10,7 +10,6 @@ const commentData = require('');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    // Need to update the model name once we have that established
     const users = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
