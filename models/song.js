@@ -13,4 +13,16 @@ Song.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-})
+    artist: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    soundcloud_track_id: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+}, {
+    sequelize,
+    timestamps: true,
+    modelName: 'Song'   
+});
