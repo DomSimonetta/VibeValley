@@ -1,9 +1,11 @@
 const sequelize = require('../config/connection');
-// Need to update what model names we actually use inside curly brackets
-// const {} = require('../models');
+const { User, Song, Playlist, Like, Comment } = require('../models');
 
-// Also need to update this/these variables to match seed data for the models
-// const userData = require('');
+const userData = require('');
+const songData = require('');
+const playlistData = require('');
+const likeData = require('');
+const commentData = require('');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
