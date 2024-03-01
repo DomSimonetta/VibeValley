@@ -48,3 +48,5 @@ Like.belongsTo(Song, {
     foreignKey: 'songId',
     as: 'song'
 });
+
+module.exports = { User, Playlist, Song, Comment, Like };
