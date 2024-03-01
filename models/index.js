@@ -21,3 +21,12 @@ User.hasMany(like, {
     foreignKey: 'userId',
     as: 'likes'
 });
+
+Song.hasMany(Comment, {
+    foreignKey: 'songId',
+    as: 'comments'
+});
+Song.hasMany(Like, {
+    foreignKey: 'songId',
+    as: 'likes'
+});
