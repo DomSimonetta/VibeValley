@@ -12,3 +12,12 @@ Song.belongsTo(Playlist, {
     foreignKey: 'playlistId',
     as: 'playlist'
 });
+
+User.hasMany(Comment, {
+    foreignKey: 'userId',
+    as: 'comments'
+});
+User.hasMany(like, {
+    foreignKey: 'userId',
+    as: 'likes'
+});
