@@ -39,3 +39,12 @@ Comment.belongsTo(Song, {
     foreignKey: 'songId',
     as: 'song'
 });
+
+Like.belongsTo(User, {
+    foreignKey: 'userId',
+    as: 'user'
+});
+Like.belongsTo(Song, {
+    foreignKey: 'songId',
+    as: 'song'
+});
