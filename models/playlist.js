@@ -27,3 +27,5 @@ Playlist.init({
     timestamps: true,
     modelName: 'Playlist'
 });
+
+module.exports = Playlist;

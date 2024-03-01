@@ -26,3 +26,5 @@ Song.init({
     timestamps: true,
     modelName: 'Song'   
 });
+
+module.exports = Song;
