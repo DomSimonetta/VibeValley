@@ -1,21 +1,22 @@
 const sequelize = require('../config/connection');
-const { User, Song, Playlist, Like, Comment } = require('../models');
+const { User, Song, Playlist, Comment } = require('../models');
 
-const userData = require('');
-const songData = require('');
-const playlistData = require('');
-const likeData = require('');
-const commentData = require('');
+const userData = require('./userData.json');
+const songData = require('./songData.json');
+const playlistData = require('./playlistData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    const users = await User.bulkCreate(userData, {
+    await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
     });
 
-    // Will we have a model for more things than just the user?
+    await Song.bulkCreate(songData);
+    await Playlist.bulkCreate(playlistData);
+    await Comment.bulkCreate(commentData);
 
     process.exit(0);
 };
