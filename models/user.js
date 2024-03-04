@@ -9,11 +9,6 @@ User.init({
         primaryKey: true,
         autoIncrement: true
     },
-    oauth_id: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
     username: {
         type: DataTypes.STRING,
         allowNull: false
@@ -25,6 +20,13 @@ User.init({
         validate: {
             isEmail: true 
         }
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [8],
+        },
     },
 }, {
     sequelize,
