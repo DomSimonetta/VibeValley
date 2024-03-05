@@ -4,6 +4,11 @@ const playlistRoutes = require('./playlistRoutes');
 const songRoutes = require('./songRoutes');
 const commentRoutes = require('./commentRoutes');
 const likeRoutes = require('./likeRoutes');
+const loginRoutes = require('./loginRoutes');
+
+router.use("/comment", commentRoutes);
+router.use("/post", postRoutes);
+router.use("/login", loginRoutes);
 
 // API routes
 router.use('/users', userRoutes);
