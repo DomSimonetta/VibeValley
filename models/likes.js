@@ -13,7 +13,7 @@ Likes.init({
         type: DataTypes.INTEGER,
         allowNull: false, 
         references: {
-            model: 'User',
+            model: 'Users',
             key: 'id',
         },
     },
@@ -21,7 +21,7 @@ Likes.init({
         type: DataTypes.INTEGER,
         allowNull: false, 
         references: {
-            model: 'Song', 
+            model: 'Songs', 
             key: 'id',
         }
     }
