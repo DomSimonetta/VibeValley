@@ -2,7 +2,7 @@ const User = require('./user');
 const Playlist = require('./playlist');
 const Song = require('./song');
 const Comment = require('./comment');
-const Like = require('./like');
+const Likes = require('./likes');
 
 Playlist.hasMany(Song, {
     foreignKey: 'playlistId',
@@ -17,7 +17,7 @@ User.hasMany(Comment, {
     foreignKey: 'userId',
     as: 'comments'
 });
-User.hasMany(like, {
+User.hasMany(Likes, {
     foreignKey: 'userId',
     as: 'likes'
 });
@@ -26,7 +26,7 @@ Song.hasMany(Comment, {
     foreignKey: 'songId',
     as: 'comments'
 });
-Song.hasMany(Like, {
+Song.hasMany(Likes, {
     foreignKey: 'songId',
     as: 'likes'
 });
@@ -40,13 +40,13 @@ Comment.belongsTo(Song, {
     as: 'song'
 });
 
-Like.belongsTo(User, {
+Likes.belongsTo(User, {
     foreignKey: 'userId',
     as: 'user'
 });
-Like.belongsTo(Song, {
+Likes.belongsTo(Song, {
     foreignKey: 'songId',
     as: 'song'
 });
 
-module.exports = { User, Playlist, Song, Comment, Like };
+module.exports = { User, Playlist, Song, Comment, Likes };
