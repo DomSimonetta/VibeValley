@@ -14,7 +14,7 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    await Song.bulkCreate(songData);
+    // await Song.bulkCreate(songData);
     await Playlist.bulkCreate(playlistData);
     await Comment.bulkCreate(commentData);
 

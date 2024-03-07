@@ -1,12 +1,15 @@
-<!-- Loop over each object in the projects array -->
-
-{{#each posts as |post|}}
-<div class="row mb-4 project">
-    <div class="col-md-5">
-      <h3>{{post.title}}</h3>
-      <p>{{post.post_text}}</p>
-      <p>Created by {{post.user.username}} on {{format_date post.date_created}}</p>
+<!-- Loop over each object in the playlists array -->
+{{#each playlists as |playlist|}}
+<a class="no-underline" href="/playlist/{{playlist.id}}">
+  <div class="row mb-4 playlist">
+    <div class="col-md-12 text-center bg-primary text-white pt-3 pb-2">
+      <h3>{{playlist.title}}</h3>
+      <p>Created by {{playlist.user.username}}</p>
     </div>
-
+    <div class="col-md-12 text-center pt-3">
+      <p>~ Mood ~ {{playlist.mood}}</p>
+      <p>{{playlist.description}}</p>
+    </div>
   </div>
+</a>
 {{/each}}

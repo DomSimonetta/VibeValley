@@ -16,17 +16,17 @@ Comment.init({
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'User',
+          model: 'Users',
           key: 'id',
         },
     },
-    song_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Song',
-          key: 'id',
-        },
-    },
+    // song_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'Songs',
+    //       key: 'id',
+    //     },
+    // },
 }, {
     sequelize,
     timestamps: false,

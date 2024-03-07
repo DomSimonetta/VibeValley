@@ -1,17 +1,22 @@
 [
     {
-        "text": "I like this."
+        "text": "I like this.",
+        "user_id": 1
     },
     {
-        "text": "This helped keep me in a great mood!"
+        "text": "This helped keep me in a great mood!",
+        "user_id": 2
     },
     {
-        "text": "I turned this playlist on and before I knew it, my workout session lasted over an hour and a half."
+        "text": "I turned this playlist on and before I knew it, my workout session lasted over an hour and a half.",
+        "user_id": 1
     },
     {
-        "text": "What is this garbage?"
+        "text": "What is this garbage?",
+        "user_id": 3
     },
     {
-        "text": "It's not bad, but could be better."
+        "text": "It's not bad, but could be better.",
+        "user_id": 2
     }
 ]
