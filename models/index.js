@@ -6,8 +6,10 @@ const Likes = require('./likes');
 
 User.hasMany(Playlist, {
     foreignKey: 'userId',
-    as: 'playlists'
+    as: 'playlists',
+    onDelete: 'CASCADE'
 });
+
 Playlist.belongsTo(User, {
     foreignKey: 'userId',
     as: 'user'
@@ -15,7 +17,8 @@ Playlist.belongsTo(User, {
 
 Playlist.hasMany(Song, {
     foreignKey: 'playlist_id',
-    as: 'songs'
+    as: 'songs',
+    onDelete: 'CASCADE'
 });
 
 Song.belongsTo(Playlist, {
@@ -25,20 +28,24 @@ Song.belongsTo(Playlist, {
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    as: 'comments'
+    as: 'comments',
+    onDelete: 'CASCADE'
 });
 User.hasMany(Likes, {
     foreignKey: 'user_id',
-    as: 'likes'
+    as: 'likes',
+    onDelete: 'CASCADE'
 });
 
 Song.hasMany(Comment, {
     foreignKey: 'song_id',
-    as: 'comments'
+    as: 'comments',
+    onDelete: 'CASCADE'
 });
 Song.hasMany(Likes, {
     foreignKey: 'song_id',
-    as: 'likes'
+    as: 'likes',
+    onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(User, {

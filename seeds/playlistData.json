@@ -2,21 +2,25 @@
     {
         "title": "Have a Great Day!",
         "mood": "Happy",
-        "description": "When you're feeling happy and you want to keep it that way."
+        "description": "When you're feeling happy and you want to keep it that way.",
+        "userId": 2
     },
     {
         "title": "Focused Study",
         "mood": "Focused",
-        "description": "Can't focus when the silence is loud? A collection of lofi beats can cure that."
+        "description": "Can't focus when the silence is loud? A collection of lofi beats can cure that.",
+        "userId": 1
     },
     {
         "title": "GET PUMPED",
         "mood": "Exercise",
-        "description": "Tunes that'll keep you energized!"
+        "description": "Tunes that'll keep you energized!",
+        "userId": 1
     },
     {
         "title": "Chill",
         "mood": "Downtempo",
-        "description": "For that chill vibe evening."
+        "description": "For that chill vibe evening.",
+        "userId": 3
     }
 ]

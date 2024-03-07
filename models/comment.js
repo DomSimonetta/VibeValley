@@ -20,13 +20,13 @@ Comment.init({
           key: 'id',
         },
     },
-    song_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Songs',
-          key: 'id',
-        },
-    },
+    // song_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'Songs',
+    //       key: 'id',
+    //     },
+    // },
 }, {
     sequelize,
     timestamps: false,
