@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 // Import route definitions
 const routes = require('./controllers');
 
-const hbs = exphbs
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+// Setup Handlebars.js as the template engine
+// app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
 
 // Set up session with SequelizeStore
 const sess = {

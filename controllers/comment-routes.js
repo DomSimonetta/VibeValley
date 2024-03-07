@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Comment = require('../models');
 const withAuth = require("../utils/auth");
 
-router.get("/", async (req, res) => {
+router.get("/", async (_req, res) => {
     try {
       const commentData = await Comment.findAll({});
       res.status(200).json(commentData);
@@ -15,7 +15,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
       comment_text: req.body.comment_text,
-      post_id: req.body.post_id,
+      playlist_id: req.body.playlist_id,
       user_id: req.session.user_id,
     });
 
