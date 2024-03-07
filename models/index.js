@@ -4,48 +4,58 @@ const Song = require('./song');
 const Comment = require('./comment');
 const Likes = require('./likes');
 
+User.hasMany(Playlist, {
+    foreignKey: 'userId',
+    as: 'playlists'
+});
+Playlist.belongsTo(User, {
+    foreignKey: 'userId',
+    as: 'user'
+});
+
 Playlist.hasMany(Song, {
-    foreignKey: 'playlistId',
+    foreignKey: 'playlist_id',
     as: 'songs'
 });
+
 Song.belongsTo(Playlist, {
-    foreignKey: 'playlistId',
+    foreignKey: 'playlist_id',
     as: 'playlist'
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     as: 'comments'
 });
 User.hasMany(Likes, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     as: 'likes'
 });
 
 Song.hasMany(Comment, {
-    foreignKey: 'songId',
+    foreignKey: 'song_id',
     as: 'comments'
 });
 Song.hasMany(Likes, {
-    foreignKey: 'songId',
+    foreignKey: 'song_id',
     as: 'likes'
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     as: 'user'
 });
 Comment.belongsTo(Song, {
-    foreignKey: 'songId',
+    foreignKey: 'song_id',
     as: 'song'
 });
 
 Likes.belongsTo(User, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     as: 'user'
 });
 Likes.belongsTo(Song, {
-    foreignKey: 'songId',
+    foreignKey: 'song_id',
     as: 'song'
 });
 
