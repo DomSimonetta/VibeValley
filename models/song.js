@@ -21,10 +21,19 @@ Song.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    playlist_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Playlist',
+          key: 'id',
+        },
+    },
 }, {
     sequelize,
-    timestamps: true,
-    modelName: 'Song'   
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Song' 
 });
 
 module.exports = Song;
