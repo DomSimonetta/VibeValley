@@ -22,9 +22,18 @@ Playlist.init({
         type: DataTypes.TEXT,
         allowNull: true
     },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id',
+        },
+    },
 }, {
     sequelize,
-    timestamps: true,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
     modelName: 'Playlist'
 });
 
