@@ -13,9 +13,25 @@ Comment.init({
         type: DataTypes.TEXT,
         allowNull: false
     },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id',
+        },
+    },
+    song_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Song',
+          key: 'id',
+        },
+    },
 }, {
     sequelize,
-    timestamps: true,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
     modelName: 'Comment'
 });
 

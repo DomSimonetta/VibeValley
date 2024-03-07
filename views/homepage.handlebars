@@ -1,0 +1,12 @@
+<!-- Loop over each object in the projects array -->
+
+{{#each playlists as |playlist|}}
+<div class="row mb-4 project">
+    <div class="col-md-5">
+      <h3>{{playlist.title}}</h3>
+      <p>{{playlist.mood}}</p>
+      <p>{{playlist.description}}</p>
+    </div>
+
+  </div>
+{{/each}}

@@ -9,25 +9,28 @@ Likes.init({
         primaryKey: true, 
         autoIncrement: true
     }, 
-    userId: {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false, 
         references: {
-            model: 'Users',
+            model: 'User',
             key: 'id',
         },
     },
-    songId: {
+    song_id: {
         type: DataTypes.INTEGER,
         allowNull: false, 
         references: {
-            model: 'Songs', 
+            model: 'Song', 
             key: 'id',
         }
     }
 }, {
     sequelize,
-    modelName: 'Likes'   
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Likes'
 });
 
 module.exports = Likes;
