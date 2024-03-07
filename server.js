@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // Import route definitions
 const routes = require('./controllers');
+const userRoutes = require('./controllers/api/userRoutes');
 
 // Setup Handlebars.js as the template engine
 // app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add routes to the application
 // app.use('/api', routes);
 app.use('/', routes);
+app.use('/api/user', userRoutes);
 
 // Sync sequelize models to the database, then start the server
 sequelize.sync({ force: false }).then(() => {
