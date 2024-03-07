@@ -7,7 +7,7 @@ const loginRoutes = require('./loginRoutes');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
-router.use('/comments', commentRoutes);
+router.use('/comment', commentRoutes);
 router.use('/login', loginRoutes);
 
 module.exports = router;
