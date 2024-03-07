@@ -1,11 +1,15 @@
 <!-- Loop over each object in the playlists array -->
 {{#each playlists as |playlist|}}
-<div class="row mb-4 project">
-    <div class="col-md-5">
+<a class="no-underline" href="/playlist/{{playlist.id}}">
+  <div class="row mb-4 playlist">
+    <div class="col-md-12 text-center bg-primary text-white pt-3 pb-2">
       <h3>{{playlist.title}}</h3>
-      <p>{{playlist.mood}}</p>
-      <p>{{playlist.description}}</p>
       <p>Created by {{playlist.user.username}}</p>
     </div>
+    <div class="col-md-12 text-center pt-3">
+      <p>~ Mood ~ {{playlist.mood}}</p>
+      <p>{{playlist.description}}</p>
+    </div>
   </div>
+</a>
 {{/each}}

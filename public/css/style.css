@@ -1,0 +1,7 @@
+.playlist {
+    border: solid 2px;
+}
+
+.no-underline:hover {
+    text-decoration: none;
+}
