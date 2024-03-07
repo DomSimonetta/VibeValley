@@ -22,12 +22,13 @@ Playlist.init({
         type: DataTypes.TEXT,
         allowNull: true
     },
-    user_id: {
+    userId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'User',
-          key: 'id',
+            model: 'Users', 
+            key: 'id',
         },
+        allowNull: false
     },
 }, {
     sequelize,
