@@ -33,7 +33,7 @@ Song.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Song' 
+    modelName: 'Songs' 
 });
 
 module.exports = Song;
