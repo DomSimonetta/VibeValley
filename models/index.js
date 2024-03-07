@@ -4,6 +4,15 @@ const Song = require('./song');
 const Comment = require('./comment');
 const Likes = require('./likes');
 
+User.hasMany(Playlist, {
+    foreignKey: 'userId',
+    as: 'playlists'
+});
+Playlist.belongsTo(User, {
+    foreignKey: 'userId',
+    as: 'user'
+});
+
 Playlist.hasMany(Song, {
     foreignKey: 'playlistId',
     as: 'songs'

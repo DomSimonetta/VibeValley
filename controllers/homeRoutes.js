@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
         const playlistData = await Playlist.findAll({
             include: [{
                 model: User,
+                as: 'user',
                 attributes: ['username'],
             }],
         });
