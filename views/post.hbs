@@ -19,3 +19,19 @@
 <hr>
 {{/each}}
 {{/if}}
+<div class="row playlist">
+    <div class="col-md-12 text-center bg-primary text-white pt-3 pb-2">
+        <h4>Add Comment</h4>
+    </div>
+    <div class="col-md-12 pt-3 ps-4">
+        <form class="leave-comment">
+        <input type="hidden" id="post-id" value="{{post.id}}"/>
+        <textarea class="comment-input" type="text" id="leave-comment"></textarea>
+        <div class="d-flex justify-content-center p-3">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+{{!-- <script src="/js/comment.js"></script> --}}
