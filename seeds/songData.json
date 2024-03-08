@@ -1,20 +1,20 @@
 [
     {
-        "title": "",
-        "artist": "",
-        "soundcloud_track_id": "",
-        "playlist_id": ""
+        "title": "title1",
+        "artist": "artist1",
+        "soundcloud_track_id": "1",
+        "playlist_id": 1
     },
     {
-        "title": "",
-        "artist": "",
-        "soundcloud_track_id": "",
-        "playlist_id": ""
+        "title": "title2",
+        "artist": "artist2",
+        "soundcloud_track_id": "2",
+        "playlist_id": 2
     },
     {
-        "title": "",
-        "artist": "",
-        "soundcloud_track_id": "",
-        "playlist_id": ""
+        "title": "title3",
+        "artist": "artist3",
+        "soundcloud_track_id": "3",
+        "playlist_id": 3
     }
 ]

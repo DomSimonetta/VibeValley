@@ -21,6 +21,12 @@ Playlist.hasMany(Song, {
     onDelete: 'CASCADE'
 });
 
+Playlist.hasMany(Comment, {
+    foreignKey: 'playlist_id',
+    as: 'comments',
+    onDelete: 'CASCADE'
+});
+
 Song.belongsTo(Playlist, {
     foreignKey: 'playlist_id',
     as: 'playlist'
@@ -37,33 +43,33 @@ User.hasMany(Likes, {
     onDelete: 'CASCADE'
 });
 
-Song.hasMany(Comment, {
-    foreignKey: 'song_id',
-    as: 'comments',
-    onDelete: 'CASCADE'
-});
-Song.hasMany(Likes, {
-    foreignKey: 'song_id',
-    as: 'likes',
-    onDelete: 'CASCADE'
-});
+// Song.hasMany(Comment, {
+//     foreignKey: 'song_id',
+//     as: 'comments',
+//     onDelete: 'CASCADE'
+// });
+// Song.hasMany(Likes, {
+//     foreignKey: 'song_id',
+//     as: 'likes',
+//     onDelete: 'CASCADE'
+// });
 
 Comment.belongsTo(User, {
     foreignKey: 'user_id',
     as: 'user'
 });
-Comment.belongsTo(Song, {
-    foreignKey: 'song_id',
-    as: 'song'
+Comment.belongsTo(Playlist, {
+    foreignKey: 'playlist_id',
+    as: 'playlist'
 });
 
 Likes.belongsTo(User, {
     foreignKey: 'user_id',
     as: 'user'
 });
-Likes.belongsTo(Song, {
-    foreignKey: 'song_id',
-    as: 'song'
+Likes.belongsTo(Playlist, {
+    foreignKey: 'playlist_id',
+    as: 'playlist'
 });
 
 module.exports = { User, Playlist, Song, Comment, Likes };
