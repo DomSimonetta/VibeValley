@@ -20,10 +20,10 @@ Comment.init({
           key: 'id',
         },
     },
-    song_id: {
+    playlist_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'Songs',
+          model: 'Playlist',
           key: 'id',
         },
     },

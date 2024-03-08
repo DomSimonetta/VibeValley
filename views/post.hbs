@@ -8,3 +8,14 @@
     <p>{{playlist.description}}</p>
   </div>
 </div>
+{{#if comments.length}}
+{{#each comments as |comment| }}
+<div class="row post">
+    <div class="pt-3 ps-4">
+        <p>{{comment.text}}</p>
+        <p>– {{comment.user.username}}</p>
+    </div>
+</div>
+<hr>
+{{/each}}
+{{/if}}

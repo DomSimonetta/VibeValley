@@ -17,11 +17,11 @@ Likes.init({
             key: 'id',
         },
     },
-    song_id: {
+    playlist_id: {
         type: DataTypes.INTEGER,
         allowNull: false, 
         references: {
-            model: 'Songs', 
+            model: 'Playlist', 
             key: 'id',
         }
     }

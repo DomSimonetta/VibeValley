@@ -37,42 +37,51 @@ router.get('/playlist/:id', async (req, res) => {
                 attributes: ['username'],
             },
             {
-                model: Song,
-                as: 'songs',
-                attributes: ['title', 'artist', 'soundcloud_track_id'],
-                // include: [
-                //     {
-                //         model: Likes,
-                //         as: 'likes'
-                //     },
-                //     {
-                //         model: Comment,
-                //         as: 'comments',
-                //         include: {
-                //             model: User,
-                //             as: 'user',
-                //             attributes: ['username']
-                //         }
-                //     }
-                // ]
-            },
+                model: Comment,
+                    as: 'comments',
+                    include: {
+                        model: User,
+                        as: 'user',
+                        attributes: ['username']
+                    }
+            }
+            // {
+            //     model: Song,
+            //     as: 'songs',
+            //     attributes: ['title', 'artist', 'soundcloud_track_id'],
+            //     include: [
+            //         {
+            //             model: Likes,
+            //             as: 'likes'
+            //         },
+            //         {
+            //             model: Comment,
+            //             as: 'comments',
+            //             include: {
+            //                 model: User,
+            //                 as: 'user',
+            //                 attributes: ['username']
+            //             }
+            //         }
+            //     ]
+            // },
         ],
         });
 
         const playlist = playlistData.get({ plain: true });
 
-        // const commentsData = await Comment.findAll({
-        //     where: {
-        //         post_id: req.params.id,
-        //     },
-        //     include: {
-        //         model: User,
-        //         as: 'user',
-        //         attributes: ['username'],
-        //     },
-        // });
+        const commentsData = await Comment.findAll({
+            where: {
+                playlist_id: req.params.id,
+            },
+            include: {
+                model: User,
+                as: 'user',
+                attributes: ['username'],
+            },
+        });
 
-        // const comments = commentsData.map((comment) => comment.get({ plain: true }));
+        const comments = commentsData.map((comment) => comment.get({ plain: true }));
 
         // const songsData = await Song.findAll({
         //     where: {
@@ -84,7 +93,7 @@ router.get('/playlist/:id', async (req, res) => {
 
         res.render('post', {
             playlist,
-            // comments,
+            comments,
             // songs,
             logged_in: req.session.logged_in
         });
