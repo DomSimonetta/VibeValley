@@ -48,14 +48,21 @@ router.get('/playlist/:id', withAuth, async (req, res) => {
     }
 });
 
-// Route to the users profile from the homepage
+// Route to the user's profile from the homepage
 router.get('/profile', withAuth, async (req, res) => {
     try {
-        // Find the logged in user based on the session ID
+        // Find the logged-in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Playlist }],
+            include: [
+                { model: Playlist, as: 'playlists' } 
+            ],
         });
+
+        if (!userData) {
+            console.log('No user found with the given session ID:', req.session.user_id);
+            return res.status(404).render('errorPage', { message: 'User not found' });
+        }
 
         const user = userData.get({ plain: true });
 
@@ -64,6 +71,7 @@ router.get('/profile', withAuth, async (req, res) => {
             logged_in: true
         });
     } catch (err) {
+        console.error('Error fetching user profile:', err);
         res.status(500).json(err);
     }
 });

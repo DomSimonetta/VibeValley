@@ -13,8 +13,11 @@ const routes = require('./controllers');
 const userRoutes = require('./controllers/api/userRoutes');
 
 const hbs = exphbs
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
+
+app.engine('.hbs', exphbs.engine({ extname: '.hbs', defaultLayout: "main"}));
+app.set('view engine', '.hbs');
 
 // Set up session with SequelizeStore
 const sess = {
