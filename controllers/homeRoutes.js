@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Playlist, User } = require('../models');
+const { Playlist, User, Likes, Song, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // When the user is at the homepage
@@ -28,19 +28,64 @@ router.get('/', async (req, res) => {
 });
 
 // Get a single playlist
-router.get('/playlist/:id', withAuth, async (req, res) => {
+router.get('/playlist/:id', async (req, res) => {
     try {
         const playlistData = await Playlist.findByPk(req.params.id, {
             include: [{
                 model: User,
+                as: 'user',
                 attributes: ['username'],
-            }],
+            },
+            {
+                model: Song,
+                as: 'songs',
+                attributes: ['title', 'artist', 'soundcloud_track_id'],
+                // include: [
+                //     {
+                //         model: Likes,
+                //         as: 'likes'
+                //     },
+                //     {
+                //         model: Comment,
+                //         as: 'comments',
+                //         include: {
+                //             model: User,
+                //             as: 'user',
+                //             attributes: ['username']
+                //         }
+                //     }
+                // ]
+            },
+        ],
         });
 
         const playlist = playlistData.get({ plain: true });
 
+        // const commentsData = await Comment.findAll({
+        //     where: {
+        //         post_id: req.params.id,
+        //     },
+        //     include: {
+        //         model: User,
+        //         as: 'user',
+        //         attributes: ['username'],
+        //     },
+        // });
+
+        // const comments = commentsData.map((comment) => comment.get({ plain: true }));
+
+        // const songsData = await Song.findAll({
+        //     where: {
+        //         post_id: req.params.id,
+        //     }
+        // });
+
+        // const songs = songsData.map((song) => song.get({ plain: true }));
+
         res.render('post', {
-            ...playlist,
+            playlist,
+            // comments,
+            // songs,
             logged_in: req.session.logged_in
         });
     } catch (err) {
