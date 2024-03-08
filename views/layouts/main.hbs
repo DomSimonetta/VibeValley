@@ -25,11 +25,11 @@
       </div>
           <div class="d-flex flex-row bg-dark">
             <!-- Conditionally render login or logout links -->
+            <a class="nav-link" href="/" id="home">Home</a>
             {{#if logged_in}}
               <a class="text center nav-link active" aria-current="page" href="/profile">Profile</a>
               <a class="nav-link" href="/" id="logout">Logout</a>
             {{else}}
-              <a class="nav-link" href="/" id="home">Home</a>
               <a class="nav-link" href="/login" style="margin-left: 5px;">Login</a>
             {{/if}}
           </div>
